@@ -21,7 +21,7 @@ const sendPhoneOTP = async (req, res) => {
     //   });
     // }
 
-    // const otp = generateOTP();
+    //const otp = generateOTP();
     const otp = "221133"
     const otpExpiresAt = getExpiryTime();
 
