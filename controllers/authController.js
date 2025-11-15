@@ -225,8 +225,8 @@ const sendCheckoutPhoneOTP = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Phone number is required' });
     }
 
-    // const otp = "221133"; // In production, use generateOTP();
-    generateOTP();
+    const otp = "221133"; // In production, use generateOTP();
+    //generateOTP();
     const otpExpiresAt = getExpiryTime();
 
     await OTP.findOneAndUpdate(

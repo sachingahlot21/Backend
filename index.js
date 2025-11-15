@@ -9,7 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const couponRoutes = require('./routes/couponRoutes')
 const adminRoutes = require('./routes/adminRoutes')
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.use(express.json())
 app.use(cookieParser());
 const allowedOrigins = [
@@ -46,6 +46,7 @@ app.use('/auth', authRoutes);
 app.use('/coupon', couponRoutes);
 app.use('/admin', adminRoutes)
 
-app.listen(PORT, () => {
-    console.log(`App started at port ${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`App started at port ${PORT}`)
+// })
+export default app;
