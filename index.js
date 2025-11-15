@@ -17,20 +17,21 @@ const allowedOrigins = [
     process.env.FRONTEND_URL 
 ];
 
-app.use(cors({
-  origin: "*"
-}));
-
 // app.use(cors({
-//     origin: function (origin, callback) {
-//         if (!origin || allowedOrigins.includes(origin)) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error("Not allowed by CORS"));
-//         }
-//     },
-//     credentials: true
+//   origin: "*"
 // }));
+
+app.use(cors({
+    origin: function(origin, callback) {
+        if (!origin) return callback(null, true); 
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("CORS not allowed"));
+        }
+    },
+    credentials: true                  
+}));
 
 
 connectToMongoDB(process.env.MONGO_URI)
